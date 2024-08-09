@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>even odd game</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <script>
+    let uwins = 0;
+    let uloses = 0;
+    // begin the game do while loop
+    let start = "y"
+    let uname = prompt("What is your name?")
+    do {
+      // ask user for question
+      let choice = prompt("Will the result be Even or Odd?")
+
+      // check if null
+      if (choice == null){
+        alert('Please enter a valid choice. Try again.');
+        break;
+      }
+
+      //convert user choice to lowercase
+      let choiceLower = choice.toLowerCase();
+      //validate choice
+      if (choiceLower !== "even" && choiceLower !== "odd"){
+        alert('Please enter a valid choice. Try again.');
+        break;
+      }
+      else if (choiceLower === "even") choice = "Even";
+      else if (choiceLower === "odd") choice = "Odd";
+
+      alert("3");
+      alert("2");
+      alert("1");
+      
+      let number1 = Math.floor(Math.random() * 4) + 1;
+      let number2 = Math.floor(Math.random() * 4) + 1;
+      let number = number1 + number2;
+
+      var EvenOdd = "";
+      if ((number % 2) !== 0){
+        EvenOdd = "Odd";
+      }
+      else {
+        EvenOdd = "Even";
+      }
+
+      var WinLose = "";
+      if (EvenOdd == choice){
+        WinLose = "win";
+        uwins ++;
+      }
+      else if (EvenOdd !== choice){
+        WinLose = "lose";
+        uloses ++;
+      }
+      
+      // ask if they want to play again
+      start = prompt(uname + ", you chose " + choice + ", the sum was " + number + " which is an " + EvenOdd + " number, you " + WinLose + "!\nThat's " + uwins + " wins and " + uloses + " losses!\nWould you like to play again? (y/n)");
+    } while (start == "y")
+  </script>
+</body>
+
+</html>
