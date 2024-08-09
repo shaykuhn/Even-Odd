@@ -10,13 +10,17 @@
 
 <body>
   <script>
+    // initialize win and loss counters
     let uwins = 0;
     let uloses = 0;
+
+    // ask for player's name
+    let uname = prompt("What is your name?")
+    
     // begin the game do while loop
     let start = "y"
-    let uname = prompt("What is your name?")
     do {
-      // ask user for question
+      // ask player if the result will be even or odd
       let choice = prompt("Will the result be Even or Odd?")
 
       // check if null
@@ -25,7 +29,7 @@
         break;
       }
 
-      //convert user choice to lowercase
+      // convert player choice to lowercase for case insensitivity
       let choiceLower = choice.toLowerCase();
       //validate choice
       if (choiceLower !== "even" && choiceLower !== "odd"){
@@ -35,14 +39,18 @@
       else if (choiceLower === "even") choice = "Even";
       else if (choiceLower === "odd") choice = "Odd";
 
+      // three to one countdown
       alert("3");
       alert("2");
       alert("1");
-      
+
+      // randomize two numbers from 1 to 4
       let number1 = Math.floor(Math.random() * 4) + 1;
       let number2 = Math.floor(Math.random() * 4) + 1;
+      // add two random numbers together
       let number = number1 + number2;
 
+      // check if number is even or odd with remainder operator
       var EvenOdd = "";
       if ((number % 2) !== 0){
         EvenOdd = "Odd";
@@ -51,6 +59,7 @@
         EvenOdd = "Even";
       }
 
+      // check if player won or lost against the player's choice
       var WinLose = "";
       if (EvenOdd == choice){
         WinLose = "win";
@@ -61,7 +70,7 @@
         uloses ++;
       }
       
-      // ask if they want to play again
+      // display results, ask if the user wants to play again
       start = prompt(uname + ", you chose " + choice + ", the sum was " + number + " which is an " + EvenOdd + " number, you " + WinLose + "!\nThat's " + uwins + " wins and " + uloses + " losses!\nWould you like to play again? (y/n)");
     } while (start == "y")
   </script>
